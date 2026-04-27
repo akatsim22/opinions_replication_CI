@@ -1,6 +1,15 @@
+Setup
+
+The original replication package includes a full pipeline implemented in Stata, R, and Python.
+
+As this replication focuses on reproducing the main analysis results using the provided processed datasets, we do not run the Stata-based data cleaning and construction steps.
+
+Instead, we install the required R and Python dependencies using:
+
+Rscript code/setup/setup-R.R  
+pip install -r code/setup/requirements.txt
+
+All analysis scripts run successfully using the provided datasets.
 
 
 
-
-
-The original replication pipeline includes data cleaning and construction steps implemented in Stata. As these steps rely on software not available in our environment, we rely on the processed datasets provided in the replication package. We verify that all analysis scripts run successfully using these datasets.
