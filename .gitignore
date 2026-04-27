@@ -1,0 +1,6 @@
+data/
+*.csv
+*.log
+.Rhistory
+.RData
+.vscode/
