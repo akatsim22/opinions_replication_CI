@@ -9,7 +9,19 @@ Instead, we install the required R and Python dependencies using:
 Rscript code/setup/setup-R.R  
 pip install -r code/setup/requirements.txt
 
-All analysis scripts run successfully using the provided datasets.
+Note: 
+
+From setup-R.R the following packages were not found and therefore eliminated from the script: 
+
+"starbility”
+
+"starpolishr"
+
+"cutr”
+
+And the package "stargazer" was added, as it is used in the trust-figure-table.R script.
+
+All analysis scripts run successfully using the provided working datasets.
 
 
 

@@ -23,10 +23,10 @@ pkgTest <- function(x,y="")
 	return("OK")
 }
 
-global.libraries <- c("tidyverse", "haven", "lfe", "starpolishr", "lubridate", "cowplot", "broom",
+global.libraries <- c("tidyverse", "haven", "lfe", "lubridate", "cowplot", "broom",
                       "extrafont", "lubridate", "stringr", "ggpubr", "zoo", "tidyr", "RColorBrewer", "multcomp",
-                      "starbility", "fixest", "pscl", "statar", "doParallel", "gridExtra", "tmap", "sf", "cutr",
-                      "splines", "devtools")
+                      "fixest", "pscl", "statar", "doParallel", "gridExtra", "tmap", "sf",
+                      "splines", "devtools", "stargazer")
 
 results <- sapply(as.list(global.libraries), pkgTest)
 
