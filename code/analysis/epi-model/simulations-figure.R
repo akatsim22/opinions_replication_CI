@@ -102,7 +102,7 @@ create_figures = function(approach) {
           text = element_text(family='LM Roman 10')) +
     scale_shape_manual(values=c(15, 16)) +
     scale_color_manual(values=c('#394BA0', '#FAA31B', '#696969', '#CB362C')) +
-    ylab('Beta (transmission rate)')
+    ylab('β (transmission rate)')
   
   checkpoints = checkpoints %>% bind_rows(checkpoints2) %>%
     mutate(variable = factor(variable, levels = c('Treated', 'Untreated', 
@@ -125,7 +125,7 @@ create_figures = function(approach) {
           text = element_text(family='LM Roman 10')) +
     scale_shape_manual(values=c(15, 16)) +
     scale_color_manual(values=c('#394BA0', '#FAA31B', '#696969', '#CB362C')) +
-    ylab('Beta (transmission rate)')
+    ylab('β (transmission rate)')
 
   ggsave(str_interp('output/figures/${folder}-simulation-betafigure.png'),height=3, width=7.5, units='in', plot=betafigure)
   

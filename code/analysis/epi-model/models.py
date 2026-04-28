@@ -236,7 +236,7 @@ def create_magnitudes(approach):
     magnitudes = magnitudes[magnitudes.type=='deaths']
     magnitudes = magnitudes.drop(['type','error_more_higher','error_more_lower','alpha'],axis=1)
     magnitudes = magnitudes.rename({'value':'log_real'}, axis=1)
-    magnitudes = magnitudes[magnitudes['date']<=pd.datetime(2020, 5, 2)]
+    magnitudes = magnitudes[magnitudes['date']<=pd.Timestamp(2020, 5, 2)]
     magnitudes['level_real'] = (np.exp(magnitudes['log_real'])-1)
     magnitudes = magnitudes.rename({'key':'variable', 'log_real': 'value'}, axis=1)
     magnitudes_wide = magnitudes[['date','variable','value']].pivot(index='date',columns='variable',values='value')
