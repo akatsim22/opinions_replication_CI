@@ -6,8 +6,11 @@ library(tidyverse)
 library(stargazer)
 library(haven)
 library(ggpubr)
-library(starbility)
 library(extrafont)
+
+if (!requireNamespace("starbility", quietly = TRUE)) {
+  message("Package 'starbility' not available; continuing without it.")
+}
 
 tablenotes = rjson::fromJSON(file='code/analysis/tablenotes.json')
 

@@ -3,7 +3,9 @@
 ##########
 
 source('code/analysis/load.R')
-library(starbility)
+if (!requireNamespace("starbility", quietly = TRUE)) {
+  message("Package 'starbility' not available; continuing without it.")
+}
 
 deaths = data %>% filter(elapdate == '2020-03-28') 
 cases =  data %>% filter(elapdate == '2020-03-14') 

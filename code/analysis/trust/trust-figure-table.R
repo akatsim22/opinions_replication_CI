@@ -40,7 +40,7 @@ ggplot(summary, aes(x = outcome, y = mean, fill=incentive)) +
         axis.title.y = element_text(size=16),
         strip.text.x = element_text(size=12),
         axis.title.x = element_blank(),
-        text = element_text(family='LM Roman 10')) +
+          text = element_text(family='sans')) +
   labs(fill = '', col= '') +
   xlab('Outcome') +
   ylab('Fraction who chose opinion show') 

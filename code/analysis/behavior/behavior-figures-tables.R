@@ -5,13 +5,38 @@
 library(tidyverse)
 library(stargazer)
 library(lfe)
-library(starpolishr)
 library(haven)
 library(lubridate)
 library(multcomp)
 library(broom)
-library(starbility)
 library(extrafont)
+
+if (!requireNamespace("starbility", quietly = TRUE)) {
+  message("Package 'starbility' not available; continuing without it.")
+}
+
+if (!requireNamespace("starpolishr", quietly = TRUE)) {
+  message("Package 'starpolishr' not available; using built-in star_notes_tex fallback.")
+  star_notes_tex <- function(x, note.type = "threeparttable", note = "") {
+    if (is.null(note) || identical(note, "")) {
+      return(x)
+    }
+    if (!identical(note.type, "threeparttable")) {
+      return(c(x, paste0("% Notes: ", note)))
+    }
+    end_table_idx = which(grepl("\\\\end\\\\{table\\\\}", x))[1]
+    if (is.na(end_table_idx)) {
+      return(c(x, "\\\\begin{tablenotes} \\small", paste0("\\\\item \\textit{Notes:} ", note), "\\\\end{tablenotes}"))
+    }
+    c(x[1:(end_table_idx - 1)],
+      "\\begin{tablenotes} \\small",
+      paste0("\\item \\textit{Notes:} ", note),
+      "\\end{tablenotes}",
+      x[end_table_idx:length(x)])
+  }
+} else {
+  star_notes_tex <- starpolishr::star_notes_tex
+}
 
 tablenotes = rjson::fromJSON(file='code/analysis/tablenotes.json')
 
