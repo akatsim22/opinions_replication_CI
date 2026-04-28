@@ -36,6 +36,10 @@ plot = ggplot(counts, aes(x=elapdate, col = show)) +
         axis.title.x = element_blank(),
         text = element_text(family='LM Roman 10')) +
   coord_cartesian(xlim=c(ymd('2020-01-05'), ymd('2020-03-24'))) +
+  scale_x_date(
+    breaks = ymd(c('2020-01-05', '2020-02-01', '2020-03-01', '2020-03-24')),
+    labels = c('Jan 5', 'Feb 1', 'Mar 1', 'Mar 24')
+  ) +
   scale_color_manual(values=c('#39568CFF', '#404040','#440154FF'))
 
 ggsave('output/figures/fox-word-count.png', plot, width=6, height=2.85, units='in') 
@@ -77,6 +81,10 @@ plot = ggplot(seriousness, aes(x = elapdate, y = serious_rolling, col = show, sh
         text = element_text(family='LM Roman 10'),
         legend.key.size = unit(3, 'line')) +
   coord_cartesian(xlim=c(ymd('2020-01-05'), ymd('2020-03-24'))) +
+  scale_x_date(
+    breaks = ymd(c('2020-01-05', '2020-02-01', '2020-03-01', '2020-03-24')),
+    labels = c('Jan 5', 'Feb 1', 'Mar 1', 'Mar 24')
+  ) +
   scale_color_manual(values=c('#39568CFF', '#404040','#440154FF'))
 
 ggsave('output/figures/fox-seriousness.png', plot, width=6, height=3.75, units='in')
